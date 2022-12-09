@@ -17,11 +17,17 @@ require("packer").startup({function(use)
   use "wbthomason/packer.nvim"
 
   -- Add/change/delete surrounding delimiter pairs with ease
-  use({
+  use {
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = "require('setup.nvim-surround')"
-  })
+  }
+
+  -- A super powerful autopair plugin that supports multiple characters
+  use {
+    "windwp/nvim-autopairs",
+    config = "require('setup.nvim-autopairs')"
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
