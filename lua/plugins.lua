@@ -29,6 +29,12 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-autopairs')"
   }
 
+  -- Displays a popup with possible keybindings of the command you started typing
+  use {
+    "folke/which-key.nvim",
+    config = "require('setup.which-key')"
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

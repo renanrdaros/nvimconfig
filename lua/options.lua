@@ -9,3 +9,4 @@ opt.smartcase = true      -- override 'ignorecase' if the pattern contains upper
 opt.tabstop = 4           -- number of spaces that a <Tab> in the file counts for
 opt.shiftwidth = 4        -- number of spaces to use for each step of (auto)indent
 opt.expandtab = true      -- expand <Tab>s into spaces
+opt.timeoutlen = 300      -- time in milliseconds to wait for a mapped sequence to complete
