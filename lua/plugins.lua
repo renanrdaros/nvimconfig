@@ -16,9 +16,12 @@ local packer_bootstrap = ensure_packer()
 require("packer").startup({function(use)
   use "wbthomason/packer.nvim"
 
-  -- My plugins here
-  -- use "foo1/bar1.nvim"
-  -- use "foo2/bar2.nvim"
+  -- Add/change/delete surrounding delimiter pairs with ease
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = "require('setup.nvim-surround')"
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
