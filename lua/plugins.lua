@@ -29,6 +29,12 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-autopairs')"
   }
 
+  -- Smart and powerful comment plugin
+  use {
+    'numToStr/Comment.nvim',
+    config = "require('setup.comment')"
+  }
+
   -- Displays a popup with possible keybindings of the command you started typing
   use {
     "folke/which-key.nvim",
