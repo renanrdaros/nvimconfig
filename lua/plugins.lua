@@ -41,6 +41,13 @@ require("packer").startup({function(use)
     config = "require('setup.which-key')"
   }
 
+  -- A file explorer tree
+  use {
+    "nvim-tree/nvim-tree.lua",
+    requires = {"nvim-tree/nvim-web-devicons"},
+    config = "require('setup.nvim-tree')"
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
