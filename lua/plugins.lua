@@ -55,6 +55,18 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-tree')"
   }
 
+  -- A highly extendable fuzzy finder over lists
+  use {
+    "nvim-telescope/telescope.nvim", branch = "0.1.x",
+    requires = {
+      {"nvim-lua/plenary.nvim"},
+      {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+      {"nvim-telescope/telescope-file-browser.nvim"},
+      {"nvim-tree/nvim-web-devicons"},
+    },
+    config = "require('setup.telescope')"
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

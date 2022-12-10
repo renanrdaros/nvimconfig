@@ -93,6 +93,28 @@ cd nerd-fonts/
 
 After the installation, set `Hack` as your terminal emulator's font.
 
+## 4 Install Telescope Dependencies
+
+Telescope is the fuzzy finder used in this setup of Neovim. It will be installed later by a plugin manager, but some **optional** dependencies need to be installed from the command line. Let's intall them now!
+
+```sh
+# install ripgrep
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+sudo dpkg -i ripgrep_13.0.0_amd64.deb
+
+# install fd
+curl -LO https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
+sudo dpkg -i fd_8.4.0_amd64.deb
+
+# create symlink in order use fd instead of fdfind command
+mkdir ~/.local/bin
+ln -s $(which fdfind) ~/.local/bin/fd
+
+# ~/.local/bin need to be in your $PATH
+echo -e '\nexport PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
 ---
 ## References
 
@@ -103,3 +125,4 @@ After the installation, set `Hack` as your terminal emulator's font.
 - [:h remote-plugin](https://neovim.io/doc/user/remote_plugin.html)
 - [npm Docs - Resolving EACCES permissions errors...](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 - [Nerd Fonts - Font Installation](https://github.com/ryanoasis/nerd-fonts#font-installation)
+- [Telescope - Getting Started](https://github.com/nvim-telescope/telescope.nvim#getting-started)
