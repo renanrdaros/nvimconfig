@@ -45,7 +45,7 @@ require("packer").startup({function(use)
   use {
     "mrjones2014/legendary.nvim",
     requires = {"stevearc/dressing.nvim"},
-    config = "require('setup.legendary')"
+    -- config = "require('setup.legendary')"
   }
 
   -- A file explorer tree
