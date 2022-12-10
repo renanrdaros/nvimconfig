@@ -79,6 +79,20 @@ source ~/.profile
 npm install -g neovim
 ```
 
+## 3 Install a Patched Font
+
+Some plugins use glyphs (icons) to identify folders and files, separate sections of information, identify severity levels in diagnostics, etc. If the font used by your terminal emulator doesn't contain those glyphs, then instead of nice-looking icons you will see just weird boxes.
+
+In the steps below we are going to install `Hack Nerd Font`, a patched font from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts).
+
+```sh
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts/
+./install.sh Hack
+```
+
+After the installation, set `Hack` as your terminal emulator's font.
+
 ---
 ## References
 
@@ -88,3 +102,4 @@ npm install -g neovim
 - [:h provider](https://neovim.io/doc/user/provider.html)
 - [:h remote-plugin](https://neovim.io/doc/user/remote_plugin.html)
 - [npm Docs - Resolving EACCES permissions errors...](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
+- [Nerd Fonts - Font Installation](https://github.com/ryanoasis/nerd-fonts#font-installation)
