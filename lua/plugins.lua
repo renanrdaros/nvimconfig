@@ -31,7 +31,7 @@ require("packer").startup({function(use)
 
   -- Smart and powerful comment plugin
   use {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = "require('setup.comment')"
   }
 
@@ -43,7 +43,7 @@ require("packer").startup({function(use)
 
   -- A legend for your keymaps, commands, and autocmds
   use {
-    'mrjones2014/legendary.nvim',
+    "mrjones2014/legendary.nvim",
     requires = {"stevearc/dressing.nvim"},
     config = "require('setup.legendary')"
   }
