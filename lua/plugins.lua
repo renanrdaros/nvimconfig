@@ -41,6 +41,13 @@ require("packer").startup({function(use)
     config = "require('setup.which-key')"
   }
 
+  -- A legend for your keymaps, commands, and autocmds
+  use {
+    'mrjones2014/legendary.nvim',
+    requires = {"stevearc/dressing.nvim"},
+    config = "require('setup.legendary')"
+  }
+
   -- A file explorer tree
   use {
     "nvim-tree/nvim-tree.lua",
