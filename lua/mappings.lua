@@ -25,7 +25,9 @@ wk.register({
     s = {
       name = "+search",
       g = { "<cmd>Telescope live_grep<cr>", "Search for a string in your cwd" },
-      s = { "<cmd>Telescope grep_string<cr>", "Search for the string under your cursor in your cwd"}
+      s = { "<cmd>Telescope grep_string<cr>", "Search for the string under your cursor in your cwd" },
+      e = { "<cmd>Telescope emoji<cr>", "Search emojis 😃" },
+      i = { "<cmd>Telescope glyph<cr>", "Search icons/glyphs" },
     },
 
     h = {
