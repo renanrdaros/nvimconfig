@@ -8,6 +8,8 @@ vim.g.mapleader = " "
 require("legendary").setup({ which_key = { auto_register = true } })
 
 local wk = require("which-key")
+
+-- normal mode mappings
 wk.register({
   ["<leader>"] = {
     f = {
@@ -39,4 +41,10 @@ wk.register({
   },
 
   ["<c-\\>"] = { "<cmd>NvimTreeToggle<cr>", "Toogle file explorer" },
+  ["<a-t>"] = { "<cmd>lua require('FTerm').toggle()<cr>", "Toggle FTerm" },
 })
+
+-- terminal mode mappings
+wk.register({
+  ["<a-t>"] = { "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>", "Toggle FTerm" },
+}, { mode = "t" })

@@ -55,6 +55,12 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-tree')"
   }
 
+  -- No-nonsense floating terminal plugin
+  use {
+    "numToStr/FTerm.nvim",
+    config = "require('setup.fterm')"
+  }
+
   -- A highly extendable fuzzy finder over lists
   use {
     "nvim-telescope/telescope.nvim", branch = "0.1.x",
