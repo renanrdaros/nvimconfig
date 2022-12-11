@@ -75,6 +75,12 @@ require("packer").startup({function(use)
     config = "require('setup.telescope')"
   }
 
+  -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
+  use {
+    "EdenEast/nightfox.nvim",
+    config = "require('setup.themes.nightfox')"
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
