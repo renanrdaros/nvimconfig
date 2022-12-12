@@ -21,6 +21,8 @@ wk.register({
 
     b = {
       name = "+buffer",
+      p = { "Go to previous buffer" }, -- already mapped in ./setup/hydra.lua
+      n = { "Go to next buffer" },     -- already mapped in ./setup/hydra.lua
       l = { "<cmd>Telescope buffers<cr>", "Lists open buffers" },
     },
 
