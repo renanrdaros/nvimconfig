@@ -67,6 +67,12 @@ require("packer").startup({function(use)
     config = "require('setup.fterm')"
   }
 
+  -- Preview markdown on your modern browser with synchronised scrolling
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
   -- A highly extendable fuzzy finder over lists
   use {
     "nvim-telescope/telescope.nvim", branch = "0.1.x",
