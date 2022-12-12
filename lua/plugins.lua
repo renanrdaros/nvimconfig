@@ -48,6 +48,12 @@ require("packer").startup({function(use)
     -- config = "require('setup.legendary')"
   }
 
+  -- Ties related commands into a family of short bindings with a common prefix
+  use {
+    "anuvyklack/hydra.nvim",
+    config = "require('setup.hydra')"
+  }
+
   -- A file explorer tree
   use {
     "nvim-tree/nvim-tree.lua",
