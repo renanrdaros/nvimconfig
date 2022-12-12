@@ -4,7 +4,7 @@ This repo contains my Neovim config files as well as instructions on how to inst
 
 ## 1 Install Neovim
 
-> **Note:** In this guide we are going to install Neovim from source. If you are looking for an easier way to install the editor, [this guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) provides instructions on how to get Neovim from pre-built archives and package repositories.
+> **Note:** In this guide we are going to install Neovim from source. If you are looking for an easier way to install the editor, [this other guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) provides instructions on how to get Neovim from pre-built archives and package repositories.
 
 ### 1.1 Install Dependencies
 
@@ -115,6 +115,16 @@ echo -e '\nexport PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+## 5 Install This Configuration
+
+Clone this repo into your `stdpath('config')` directory[^1]:
+
+```sh
+git clone --depth=1 https://github.com/renanrdaros/nvimconfig.git ~/.config/nvim
+```
+
+> **Note:** The first time you run `nvim` again it will automatically install a plugin manager ([`packer.nvim`](https://github.com/wbthomason/packer.nvim)) as well as all the plugins used by this config. Just wait for the procedure to finish.
+
 ---
 ## References
 
@@ -126,3 +136,5 @@ source ~/.bashrc
 - [npm Docs - Resolving EACCES permissions errors...](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 - [Nerd Fonts - Font Installation](https://github.com/ryanoasis/nerd-fonts#font-installation)
 - [Telescope - Getting Started](https://github.com/nvim-telescope/telescope.nvim#getting-started)
+
+[^1]: `~/.config/nvim` on UNIX systems.
