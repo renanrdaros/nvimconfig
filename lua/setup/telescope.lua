@@ -1,6 +1,13 @@
 local ts = require("telescope")
 
 ts.setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<M-?>"] = "which_key",
+      }
+    }
+  },
   extensions = {
     emoji = {
       action = function(emoji)
