@@ -87,6 +87,16 @@ require("packer").startup({function(use)
     config = "require('setup.telescope')"
   }
 
+  -- Nvim Treesitter configurations and abstraction layer
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      ts_update()
+    end,
+    config = "require('setup.nvim-treesitter')"
+  }
+
   -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
   use {
     "EdenEast/nightfox.nvim",
