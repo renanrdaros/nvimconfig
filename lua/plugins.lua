@@ -97,6 +97,12 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-treesitter')"
   }
 
+  -- Quickstart configs for Nvim LSP
+  use {
+    "neovim/nvim-lspconfig",
+    config = "require('setup.nvim-lspconfig')"
+  }
+
   -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
   use {
     "EdenEast/nightfox.nvim",

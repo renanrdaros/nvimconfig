@@ -115,7 +115,30 @@ echo -e '\nexport PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## 5 Install This Configuration
+## 5 Install Language Servers
+
+Neovim provides an LSP client, but to get LSP features we need to install the language servers (which are provided by third parties).
+
+### 5.1 Clangd
+
+`clangd` is a C++ language server. Run the the following commands to install it:
+
+```sh
+sudo apt install clangd-14
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100
+```
+
+For more information about installation and setup, click [here](https://clangd.llvm.org/installation).
+
+### 5.2 Pyright
+
+`pyright` is a static type checker and language server for python. We can install it using `npm`.
+
+```sh
+npm i -g pyright
+```
+
+## 6 Install This Configuration
 
 Clone this repo into your `stdpath('config')` directory[^1]:
 
