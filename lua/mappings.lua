@@ -40,6 +40,14 @@ wk.register({
       m = { "<cmd>Telescope man_pages<cr>", "Lists man page entries" },
       k = { "<cmd>Legendary<cr>", "Find keymaps, commands, and autocmds" },
     },
+
+    d = {
+      name = "+diagnostics",
+      f = { vim.diagnostic.open_float, "Show diagnostics in a floating window" },
+      l = { vim.diagnostic.setloclist, "Add diagnostics to the location list" },
+      p = { "Go to previous diagnostic" }, -- already mapped in ./setup/hydra.lua
+      n = { "Go to next diagnostic" },     -- already mapped in ./setup/hydra.lua
+    }
   },
 
   ["<c-\\>"] = { "<cmd>NvimTreeToggle<cr>", "Toogle file explorer" },

@@ -52,3 +52,26 @@ hydra({
     { "n", cmd("bnext") },
   }
 })
+
+hydra({
+  name = "Diagnostics Navigation",
+  mode = "n",
+  hint = [[
+
+  Diagnostics Navigation
+  ----------------------
+
+  _p_: previous diagnostic
+  _n_: next diagnostic
+
+               _<Esc>_
+  ]],
+  config = {
+    hint = hint_config
+  },
+  body = "<leader>d",
+  heads = {
+    { "p", vim.diagnostic.goto_prev },
+    { "n", vim.diagnostic.goto_next },
+  }
+})
