@@ -2,6 +2,17 @@
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 
+  require("lsp_signature").on_attach({
+    bind = true,
+    hint_enable = false,
+    hint_prefix = " ",
+    -- handler_opts = {
+    --   border = "rounded"
+    -- },
+    toggle_key = "<A-K>",
+    select_signature_key = "<A-k>",
+  }, bufnr)
+
   -- Mappings.
   local wk = require("which-key")
 
