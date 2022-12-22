@@ -124,6 +124,7 @@ require("packer").startup({function(use)
   -- Quickstart configs for Nvim LSP
   use {
     "neovim/nvim-lspconfig",
+    requires = {"ray-x/lsp_signature.nvim"},
     config = "require('setup.nvim-lspconfig')"
   }
 
