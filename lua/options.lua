@@ -16,3 +16,8 @@ opt.shiftwidth = 4        -- number of spaces to use for each step of (auto)inde
 opt.expandtab = true      -- expand <Tab>s into spaces
 opt.timeoutlen = 300      -- time in milliseconds to wait for a mapped sequence to complete
 opt.termguicolors = true  -- enables 24-bit RGB color in the TUI
+opt.completeopt = {       -- options for insert mode completion
+  "menu",                 -- show possible completions on a popup menu
+  "menuone",              -- show the menu also when there is only one match
+  "noselect"              -- force the user to select a match from the menu
+}
