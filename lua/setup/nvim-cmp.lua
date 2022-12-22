@@ -45,7 +45,10 @@ cmp.setup({
       { name = "path"},
   }, {
       { name = "buffer" },
-  })
+  }),
+  experimental = {
+    ghost_text = true -- note: this feature conflict with copilot.vim's preview.
+  },
 })
 
  -- Use buffer source for `/` and `?`
