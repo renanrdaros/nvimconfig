@@ -1,8 +1,6 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   local wk = require("which-key")
@@ -26,14 +24,18 @@ local on_attach = function(client, bufnr)
   wk.register({
     ["<C-k>"] = { vim.lsp.buf.signature_help, "Show signature information" },
   }, { buffer = bufnr, mode = {"n", "i", "s"} })
+
 end
 
 local lspconfig = require("lspconfig")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig["clangd"].setup{
     on_attach = on_attach,
+    capabilities = capabilites,
 }
 
 lspconfig["pyright"].setup{
     on_attach = on_attach,
+    capabilities = capabilites,
 }
