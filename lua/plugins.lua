@@ -61,10 +61,10 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-tree')"
   }
 
-  -- No-nonsense floating terminal plugin
-  use {
-    "numToStr/FTerm.nvim",
-    config = "require('setup.fterm')"
+  -- Terminal manager
+  use {"akinsho/toggleterm.nvim",
+    tag = '*',
+    config = "require('setup.toggleterm')"
   }
 
   -- Preview markdown on your modern browser with synchronised scrolling

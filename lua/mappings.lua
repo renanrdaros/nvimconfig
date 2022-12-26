@@ -47,14 +47,25 @@ wk.register({
       l = { vim.diagnostic.setloclist, "Add diagnostics to the location list" },
       p = { "Go to previous diagnostic" }, -- already mapped in ./setup/hydra.lua
       n = { "Go to next diagnostic" },     -- already mapped in ./setup/hydra.lua
-    }
+    },
+
+    t = {
+      name = "+terminal",
+      t = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
+      f = { "<cmd>exe v:count1 . \"ToggleTerm direction=float\"<cr>", "Toggle terminal (float)" },
+      x = { "<cmd>exe v:count1 . \"ToggleTerm direction=horizontal\"<cr>", "Toggle terminal (horizontal)" },
+      v = { "<cmd>exe v:count1 . \"ToggleTerm direction=vertical\"<cr>", "Toggle terminal (vertical)" },
+    },
   },
 
   ["<c-\\>"] = { "<cmd>NvimTreeToggle<cr>", "Toogle file explorer" },
-  ["<a-t>"] = { "<cmd>lua require('FTerm').toggle()<cr>", "Toggle FTerm" },
+  ["<a-t>"] = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
 })
 
 -- terminal mode mappings
+vim.api.nvim_create_autocmd("TermEnter", { pattern = "term://*toggleterm#*", command = [[tnoremap <silent><a-t> <cmd>exe v:count1 . "ToggleTerm"<cr>]] })
+
 wk.register({
-  ["<a-t>"] = { "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>", "Toggle FTerm" },
+  ["<a-t>"] = { "Toggle terminal (remembered)" }, -- already mapped above 👆
+  ["<esc>"] = { "<c-\\><c-n>", "Easier escape from terminal mode" }
 }, { mode = "t" })
