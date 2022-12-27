@@ -33,8 +33,9 @@ local on_attach = function(client, bufnr)
   }, { buffer = bufnr })
 
   wk.register({
-    ["<C-k>"] = { vim.lsp.buf.signature_help, "Show signature information" },
-  }, { buffer = bufnr, mode = {"n", "i", "s"} })
+    ["<A-K>"] = { "Toggle signature help on and off" },
+    ["<A-k>"] = { "Cycle to next signature" },
+  }, { buffer = bufnr, mode = "i" })
 
 end
 
