@@ -24,10 +24,10 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    ["gD"]         = { vim.lsp.buf.declaration, "Jump to symbol declaration" },
-    ["gd"]         = { vim.lsp.buf.definition, "Jump to symbol definition" },
+    ["gd"]         = { vim.lsp.buf.declaration, "Jump to symbol declaration" },
     ["gi"]         = { vim.lsp.buf.implementation, "List symbol implementations" },
-    ["gt"]         = { vim.lsp.buf.type_definition, "Jump to type definition" },
+    ["gD"]         = { vim.lsp.buf.definition, "Jump to symbol definition" },
+    ["gT"]         = { vim.lsp.buf.type_definition, "Jump to type definition" },
     ["gr"]         = { vim.lsp.buf.references, "List symbol references" },
     ["K"]          = { vim.lsp.buf.hover, "Show hover information" },
     ["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Add folder to workspace" },
