@@ -136,6 +136,12 @@ require("packer").startup({function(use)
     config = "require('setup.trouble')"
   }
 
+  -- Distraction-free coding
+  use {
+    "folke/zen-mode.nvim",
+    config = "require('setup.zen-mode')"
+  }
+
   -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
   use { "EdenEast/nightfox.nvim" }
 

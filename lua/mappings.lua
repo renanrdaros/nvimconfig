@@ -64,6 +64,7 @@ wk.register({
   ["<a-\\>"] = { "<cmd>Telescope file_browser<cr>", "Open Telescope file explorer/browser" },
   ["<a-t>"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble list" },
   ["<a-T>"] = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
+  ["<a-Z>"] = { "<cmd>ZenMode<cr>", "Toggle Zen Mode" },
 })
 
 -- terminal mode mappings
