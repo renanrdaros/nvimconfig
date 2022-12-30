@@ -129,11 +129,14 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-lspconfig')"
   }
 
-  -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
   use {
-    "EdenEast/nightfox.nvim",
-    config = "require('setup.themes.nightfox')"
   }
+
+  -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
+  use { "EdenEast/nightfox.nvim" }
+
+  -- NeoVim dark colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
+  use { "rebelot/kanagawa.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
