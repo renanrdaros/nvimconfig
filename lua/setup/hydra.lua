@@ -54,23 +54,25 @@ hydra({
 })
 
 hydra({
-  name = "Diagnostics Navigation",
+  name = "Trouble",
   mode = "n",
   hint = [[
 
-  Diagnostics Navigation
-  ----------------------
+         Trouble
+         -------
 
-  _p_: previous diagnostic
+  _K_: hover
+  _p_: previous diagnostic  
   _n_: next diagnostic
 
-               _<Esc>_
+                   _<Esc>_ 
   ]],
   config = {
     hint = hint_config
   },
-  body = "<leader>d",
+  body = "<leader>t",
   heads = {
+    { "K", vim.diagnostic.open_float },
     { "p", vim.diagnostic.goto_prev },
     { "n", vim.diagnostic.goto_next },
   }

@@ -129,7 +129,11 @@ require("packer").startup({function(use)
     config = "require('setup.nvim-lspconfig')"
   }
 
+  -- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists
   use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = "require('setup.trouble')"
   }
 
   -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
