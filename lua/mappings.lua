@@ -32,12 +32,19 @@ wk.register({
       k = { "<cmd>Legendary<cr>", "Find keymaps, commands, and autocmds" },
     },
 
-    d = {
-      name = "+diagnostics",
-      f = { vim.diagnostic.open_float, "Show diagnostics in a floating window" },
-      l = { vim.diagnostic.setloclist, "Add diagnostics to the location list" },
-      p = { "Go to previous diagnostic" }, -- already mapped in ./setup/hydra.lua
-      n = { "Go to next diagnostic" },     -- already mapped in ./setup/hydra.lua
+    t = {
+      name = "+trouble",
+      t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble list" },
+      d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Show document diagnostics" },
+      w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Show workspace diagnostics" },
+      r = { "<cmd>TroubleToggle lsp_references<cr>", "Show references of the symbol under the cursor" },
+      D = { "<cmd>TroubleToggle lsp_definitions<cr>", "Show definitions of the symbol under the cursor" },
+      T = { "<cmd>TroubleToggle lsp_type_definitions<cr>", "Show type definitions of the symbol under the cursor" },
+      q = { "<cmd>TroubleToggle quickfix<cr>", "Show items from the quickfix list" },
+      l = { "<cmd>TroubleToggle loclist<cr>", "Show items from the window's location list" },
+      K = { "Show diagnostics in a floating window" }, -- already mapped in ./setup/hydra.lua
+      p = { "Go to previous diagnostic" },             -- already mapped in ./setup/hydra.lua
+      n = { "Go to next diagnostic" },                 -- already mapped in ./setup/hydra.lua
     },
 
     T = {
@@ -55,6 +62,7 @@ wk.register({
   ["<a-*>"] = { "<cmd>Telescope grep_string<cr>", "Search for the string under your cursor in your cwd" },
   ["<a-|>"] = { "<cmd>NvimTreeToggle<cr>", "Toogle NvimTree file explorer/browser" },
   ["<a-\\>"] = { "<cmd>Telescope file_browser<cr>", "Open Telescope file explorer/browser" },
+  ["<a-t>"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble list" },
   ["<a-T>"] = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
 })
 
