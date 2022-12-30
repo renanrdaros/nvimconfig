@@ -65,6 +65,7 @@ wk.register({
   ["<a-t>"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble list" },
   ["<a-T>"] = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
   ["<a-Z>"] = { "<cmd>ZenMode<cr>", "Toggle Zen Mode" },
+  ["<a-D>"] = { "<cmd>Twilight<cr>", "Dim inactive portions of code" },
 })
 
 -- terminal mode mappings
