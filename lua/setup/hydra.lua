@@ -1,15 +1,15 @@
 local hydra = require("hydra")
 local cmd = require("hydra.keymap-util").cmd
 
-local hint_config = { border = "double", position = "middle" }
+local hint_config = { border = "double", position = "bottom" }
 
 hydra({
   name = "Windows",
   mode = "n",
   hint = [[
 
-  Win Resize
-  ----------
+    Window Resize
+    -------------
 
   _>_: increase width   
   _<_: decrease width   
@@ -35,8 +35,8 @@ hydra({
   mode = "n",
   hint = [[
   
-  Buf Navigation
-  --------------
+  Buffers Navigation
+  ------------------
 
   _p_: previous buffer  
   _n_: next buffer
@@ -75,5 +75,33 @@ hydra({
     { "K", vim.diagnostic.open_float },
     { "p", vim.diagnostic.goto_prev },
     { "n", vim.diagnostic.goto_next },
+  }
+})
+
+hydra({
+  name = "Horizontal Scroll",
+  mode = "n",
+  hint = [[
+
+                        Horizontal Scroll
+                        -----------------
+  
+    _h_  _l_   : move left/right
+   _H_  _L_  : move left/right half a screenwidth
+  ┃ _s_  _e_ ┃ : move cursor position to start/end of the screen  
+
+                                                         _<Esc>_  
+  ]],
+  config = {
+    hint = hint_config
+  },
+  body = "z",
+  heads = {
+    { "h", "zh" },
+    { "l", "zl" },
+    { "H", "zH" },
+    { "L", "zL" },
+    { "s", "zs" },
+    { "e", "ze" },
   }
 })
