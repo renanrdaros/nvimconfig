@@ -142,6 +142,12 @@ require("packer").startup({function(use)
     config = "require('setup.zen-mode')"
   }
 
+  -- Dims inactive portions of the code you're editing
+  use {
+    "folke/twilight.nvim",
+    config = "require('setup.twilight')"
+  }
+
   -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
   use { "EdenEast/nightfox.nvim" }
 
