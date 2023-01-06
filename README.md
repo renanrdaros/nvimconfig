@@ -2,9 +2,16 @@
 
 This repo contains my Neovim config files as well as instructions on how to install the editor and the dependencies for this configuration.
 
-## 1 Install Neovim
+> ⚠️  **Warning:** Some dependencies will be installed in the user install directory, so `~/.local/bin` need to be in your `$PATH`
+>
+> ```
+> echo -e '\nexport PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+> source ~/.bashrc
+> ```
 
-> **Note:** In this guide we are going to install Neovim from source. If you are looking for an easier way to install the editor, [this other guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) provides instructions on how to get Neovim from pre-built archives and package repositories.
+> ℹ️  **Note:** In this guide we are going to install Neovim from source. If you are looking for an easier way to install the editor, [this other guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) provides instructions on how to get Neovim from pre-built archives and package repositories.
+
+## 1 Install Neovim
 
 ### 1.1 Install Dependencies
 
@@ -106,12 +113,7 @@ curl -LO https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.d
 sudo dpkg -i fd_8.4.0_amd64.deb
 
 # create symlink in order use fd instead of fdfind command
-mkdir ~/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
-
-# ~/.local/bin need to be in your $PATH
-echo -e '\nexport PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
 ```
 
 ## 5 Install Language Servers
@@ -135,6 +137,14 @@ For more information about installation and setup, click [here](https://clangd.l
 
 ```sh
 npm i -g pyright
+```
+
+### 5.3 CMake Language Server
+
+`cmake-language-server` is a CMake LSP Implementation. Install it with the following command:
+
+```
+python3 -m pip install --user cmake-language-server
 ```
 
 ## 6 Install This Configuration

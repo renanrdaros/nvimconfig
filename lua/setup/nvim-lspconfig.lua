@@ -57,3 +57,8 @@ lspconfig["pyright"].setup{
     on_attach = on_attach,
     capabilities = capabilites,
 }
+
+lspconfig["cmake"].setup{
+    on_attach = on_attach,
+    capabilities = capabilites,
+}
