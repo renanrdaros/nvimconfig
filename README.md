@@ -94,7 +94,7 @@ After the installation, set `Hack` as your terminal emulator's font.
 
 ## 4 Install Telescope Dependencies
 
-Telescope is the fuzzy finder used in this setup of Neovim. It will be installed later by a plugin manager, but some **optional** dependencies need to be installed from the command line. Let's intall them now!
+Telescope is the fuzzy finder used in this setup of Neovim. It will be installed later by a plugin manager, but some **optional** dependencies need to be installed from the command line. Let's install them now!
 
 ```sh
 # install ripgrep
