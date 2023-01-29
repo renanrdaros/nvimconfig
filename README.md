@@ -139,7 +139,15 @@ For more information about installation and setup, click [here](https://clangd.l
 npm i -g pyright
 ```
 
-### 5.3 CMake Language Server
+### 5.3 Rust Analyzer
+
+`rust-analyzer` is an implementation of LSP for the Rust programming language. Assuming you already have Rust installed on your machine, then you can install `rust-analyzer` with the following command:
+
+```sh
+rustup component add rust-analyzer
+```
+
+### 5.4 CMake Language Server
 
 `cmake-language-server` is a CMake LSP Implementation. Install it with the following command:
 

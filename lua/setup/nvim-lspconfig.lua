@@ -58,6 +58,12 @@ lspconfig["pyright"].setup{
     capabilities = capabilites,
 }
 
+lspconfig["rust_analyzer"].setup{
+    on_attach = on_attach,
+    capabilities = capabilites,
+    cmd = { "rustup", "run", "stable", "rust-analyzer" }
+}
+
 lspconfig["cmake"].setup{
     on_attach = on_attach,
     capabilities = capabilites,
