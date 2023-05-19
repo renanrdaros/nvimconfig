@@ -16,20 +16,21 @@ wk.register({
       name = "+buffer",
       p = { "Go to previous buffer" }, -- already mapped in ./setup/hydra.lua
       n = { "Go to next buffer" },     -- already mapped in ./setup/hydra.lua
-      l = { "<cmd>Telescope buffers<cr>", "Lists open buffers" },
+      l = { "<cmd>Telescope buffers<cr>", "List open buffers" },
     },
 
-    s = {
-      name = "+search",
-      e = { "<cmd>Telescope emoji<cr>", "Search emojis 😃" },
-      i = { "<cmd>Telescope glyph<cr>", "Search icons/glyphs" },
+    f = {
+      name = "+find",
+      f = { "<cmd>Telescope find_files<cr>", "Find files in cwd" },
+      e = { "<cmd>Telescope emoji<cr>", "Find emojis 😃" },
+      g = { "<cmd>Telescope glyph<cr>", "Find glyphs" },
     },
 
     h = {
       name = "+help",
-      t = { "<cmd>Telescope help_tags<cr>", "Lists avaiable help tags" },
-      m = { "<cmd>Telescope man_pages<cr>", "Lists man page entries" },
-      k = { "<cmd>Legendary<cr>", "Find keymaps, commands, and autocmds" },
+      t = { "<cmd>Telescope help_tags<cr>", "List avaiable help tags" },
+      m = { "<cmd>Telescope man_pages<cr>", "List man page entries" },
+      p = { "<cmd>Legendary<cr>", "Show all commands (Command Palette)" },
     },
 
     t = {
@@ -56,16 +57,17 @@ wk.register({
     },
   },
 
-  ["<a-P>"] = { "<cmd>Legendary<cr>", "Show all commands (Command Palette)" },
-  ["<a-F>"] = { "<cmd>Telescope find_files<cr>", "Find files in your cwd" },
-  ["<a-/>"] = { "<cmd>Telescope live_grep<cr>", "Search for a string in your cwd" },
-  ["<a-*>"] = { "<cmd>Telescope grep_string<cr>", "Search for the string under your cursor in your cwd" },
+  ["<a-p>"] = { "<cmd>Legendary<cr>", "Show all commands (Command Palette)" },
+  ["<a-f>"] = { "<cmd>Telescope find_files<cr>", "Find files in cwd" },
+  ["<a-b>"] = { "<cmd>Telescope buffers<cr>", "List open buffers" },
+  ["<a-/>"] = { "<cmd>Telescope live_grep<cr>", "Search for a string in cwd" },
+  ["<a-*>"] = { "<cmd>Telescope grep_string<cr>", "Search for the string under the cursor in cwd" },
   ["<a-|>"] = { "<cmd>NvimTreeToggle<cr>", "Toogle NvimTree file explorer/browser" },
   ["<a-\\>"] = { "<cmd>Telescope file_browser<cr>", "Open Telescope file explorer/browser" },
   ["<a-t>"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble list" },
   ["<a-T>"] = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
-  ["<a-Z>"] = { "<cmd>ZenMode<cr>", "Toggle Zen Mode" },
-  ["<a-D>"] = { "<cmd>Twilight<cr>", "Dim inactive portions of code" },
+  ["<a-z>"] = { "<cmd>ZenMode<cr>", "Toggle Zen Mode" },
+  ["<a-d>"] = { "<cmd>Twilight<cr>", "Dim inactive portions of code" },
 })
 
 -- terminal mode mappings
@@ -73,5 +75,5 @@ vim.api.nvim_create_autocmd("TermEnter", { pattern = "term://*toggleterm#*", com
 
 wk.register({
   ["<a-T>"] = { "Toggle terminal (remembered)" }, -- already mapped above 👆
-  ["<esc>"] = { "<c-\\><c-n>", "Easier escape from terminal mode" }
+  ["<esc>"] = { "<c-\\><c-n>", "Easier escape from terminal mode" },
 }, { mode = "t" })
