@@ -41,30 +41,11 @@ require("packer").startup({function(use)
     config = "require('setup.which-key')"
   }
 
-  -- A legend for your keymaps, commands, and autocmds
-  use {
-    "mrjones2014/legendary.nvim",
-    requires = {"stevearc/dressing.nvim"},
-    -- config = "require('setup.legendary')"
-  }
-
-  -- Ties related commands into a family of short bindings with a common prefix
-  use {
-    "anuvyklack/hydra.nvim",
-    config = "require('setup.hydra')"
-  }
-
   -- A file explorer tree
   use {
     "nvim-tree/nvim-tree.lua",
     requires = {"nvim-tree/nvim-web-devicons"},
     config = "require('setup.nvim-tree')"
-  }
-
-  -- Terminal manager
-  use {"akinsho/toggleterm.nvim",
-    tag = '*',
-    config = "require('setup.toggleterm')"
   }
 
   -- Preview markdown on your modern browser with synchronised scrolling
@@ -127,25 +108,6 @@ require("packer").startup({function(use)
     "neovim/nvim-lspconfig",
     requires = {"ray-x/lsp_signature.nvim"},
     config = "require('setup.nvim-lspconfig')"
-  }
-
-  -- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = "require('setup.trouble')"
-  }
-
-  -- Distraction-free coding
-  use {
-    "folke/zen-mode.nvim",
-    config = "require('setup.zen-mode')"
-  }
-
-  -- Dims inactive portions of the code you're editing
-  use {
-    "folke/twilight.nvim",
-    config = "require('setup.twilight')"
   }
 
   -- A highly customizable theme with support for lsp, treesitter and a variety of plugins
