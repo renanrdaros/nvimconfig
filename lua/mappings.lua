@@ -14,6 +14,14 @@ wk.register({
       l = { "<cmd>Telescope buffers<cr>", "List open buffers" },
     },
 
+    e = {
+      name = "+explore",
+      e = { "<cmd>Oil<cr>", "Explore current file's parent directory" },
+      w = { "<cmd>Oil .<cr>", "Explore cwd" },
+      h = { "<cmd>Oil ~<cr>", "Explore $USER home directory" },
+      r = { "<cmd>Oil /<cr>", "Explore the root directory" },
+    },
+
     f = {
       name = "+find",
       f = { "<cmd>Telescope find_files<cr>", "Find files in cwd" },
@@ -40,7 +48,6 @@ wk.register({
   ["<a-b>"] = { "<cmd>Telescope buffers<cr>", "List open buffers" },
   ["<a-/>"] = { "<cmd>Telescope live_grep<cr>", "Search for a string in cwd" },
   ["<a-*>"] = { "<cmd>Telescope grep_string<cr>", "Search for the string under the cursor in cwd" },
-  ["<a-|>"] = { "<cmd>NvimTreeToggle<cr>", "Toogle NvimTree file explorer/browser" },
   ["<a-\\>"] = { "<cmd>Telescope file_browser<cr>", "Open Telescope file explorer/browser" },
   ["<a-T>"] = { "<cmd>exe v:count1 . \"ToggleTerm\"<cr>", "Toggle terminal (remembered)" },
 })

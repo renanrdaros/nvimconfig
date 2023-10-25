@@ -41,11 +41,11 @@ require("packer").startup({function(use)
     config = "require('setup.which-key')"
   }
 
-  -- A file explorer tree
+  -- A file explorer that lets you edit your filesystem like a normal Neovim buffer
   use {
-    "nvim-tree/nvim-tree.lua",
+    "stevearc/oil.nvim",
     requires = {"nvim-tree/nvim-web-devicons"},
-    config = "require('setup.nvim-tree')"
+    config = "require('setup.oil')"
   }
 
   -- Preview markdown on your modern browser with synchronised scrolling

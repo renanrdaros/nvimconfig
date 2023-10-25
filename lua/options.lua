@@ -1,7 +1,3 @@
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 vim.opt.number = true         -- show line numbers
 vim.opt.relativenumber = true -- line numbers are relative to the current line
 vim.opt.splitbelow = true     -- splits put the new window below the current one
