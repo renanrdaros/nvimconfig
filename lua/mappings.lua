@@ -1,7 +1,5 @@
-local map = vim.keymap
-
 -- set leader key
-map.set({"n", "v"}, "<space>", "<nop>")
+vim.keymap.set({"n", "v"}, "<space>", "<nop>")
 vim.g.mapleader = " "
 
 -- automatically register which-key tables with legendary
