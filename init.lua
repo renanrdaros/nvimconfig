@@ -1,4 +1,5 @@
 require("options")
+require("signs")
 require("plugins")
 require("mappings")
 require("colorschemes")

@@ -1,9 +1,3 @@
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-for severity, icon in pairs(signs) do
-  local name = "DiagnosticSign" .. severity
-  vim.fn.sign_define(name, { text = icon, texthl = name, linehl = "", numhl = "" })
-end
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
