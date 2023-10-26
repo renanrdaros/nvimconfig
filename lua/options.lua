@@ -7,7 +7,6 @@ vim.opt.smartcase = true      -- override 'ignorecase' if the pattern contains u
 vim.opt.tabstop = 4           -- number of spaces that a <Tab> in the file counts for
 vim.opt.shiftwidth = 4        -- number of spaces to use for each step of (auto)indent
 vim.opt.expandtab = true      -- expand <Tab>s into spaces
-vim.opt.wrap = false          -- disable line wrap
 vim.opt.timeoutlen = 300      -- time in milliseconds to wait for a mapped sequence to complete
 vim.opt.termguicolors = true  -- enables 24-bit RGB color in the TUI
 vim.opt.inccommand = "split"  -- show the effects of a command in a preview window
