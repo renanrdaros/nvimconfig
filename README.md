@@ -112,7 +112,7 @@ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 curl -LO https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
 sudo dpkg -i fd_8.4.0_amd64.deb
 
-# create symlink in order use fd instead of fdfind command
+# create symlink in order to use fd instead of fdfind command
 ln -s $(which fdfind) ~/.local/bin/fd
 ```
 
@@ -122,7 +122,7 @@ Neovim provides an LSP client, but to get LSP features we need to install the la
 
 ### 5.1 Clangd
 
-`clangd` is a C++ language server. Run the the following commands to install it:
+`clangd` is a C++ language server. Run the following commands to install it:
 
 ```sh
 sudo apt install clangd-14
