@@ -9,32 +9,31 @@ local on_attach = function(client, bufnr)
     -- handler_opts = {
     --   border = "rounded"
     -- },
-    toggle_key = "<A-K>",
-    select_signature_key = "<A-k>",
+    toggle_key = "<M-s>",
+    select_signature_key = "<M-S>",
   }, bufnr)
 
-  -- Mappings.
   local wk = require("which-key")
 
   wk.register({
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    ["gd"]         = { vim.lsp.buf.declaration, "Jump to symbol declaration" },
-    ["gi"]         = { vim.lsp.buf.implementation, "List symbol implementations" },
-    ["gD"]         = { vim.lsp.buf.definition, "Jump to symbol definition" },
-    ["gT"]         = { vim.lsp.buf.type_definition, "Jump to type definition" },
-    ["gr"]         = { vim.lsp.buf.references, "List symbol references" },
-    ["K"]          = { vim.lsp.buf.hover, "Show hover information" },
+    ["<leader>gD"] = { vim.lsp.buf.declaration, "Jump to symbol declaration" },
+    ["<leader>gd"] = { vim.lsp.buf.definition, "Jump to symbol definition" },
+    ["<leader>gi"] = { vim.lsp.buf.implementation, "List symbol implementations" },
+    ["<leader>gt"] = { vim.lsp.buf.type_definition, "Jump to type definition" },
+    ["<leader>gr"] = { vim.lsp.buf.references, "List symbol references" },
+    ["<leader>R"]  = { vim.lsp.buf.rename, "Rename symbol references" },
+    ["<M-h>"]      = { vim.lsp.buf.hover, "Show hover information" },
+    ["<leader>ca"] = { vim.lsp.buf.code_action, "Select an available code action" },
+    ["<leader>bf"] = { vim.lsp.buf.formatting, "Format current buffer" },
     ["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Add folder to workspace" },
     ["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder,  "Remove folder from workspace" },
     ["<leader>wl"] = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders" },
-    ["<leader>rn"] = { vim.lsp.buf.rename, "Rename symbol references" },
-    ["<leader>ca"] = { vim.lsp.buf.code_action, "Select an available code action" },
-    ["<leader>bf"] = { vim.lsp.buf.formatting, "Format current buffer" },
   }, { buffer = bufnr })
 
   wk.register({
-    ["<A-K>"] = { "Toggle signature help on and off" },
-    ["<A-k>"] = { "Cycle to next signature" },
+    ["<M-s>"] = { "Toggle signature on and off" },
+    ["<M-S>"] = { "Cycle to next signature" },
   }, { buffer = bufnr, mode = "i" })
 
 end
