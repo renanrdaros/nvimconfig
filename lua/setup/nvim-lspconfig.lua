@@ -13,9 +13,7 @@ local on_attach = function(client, bufnr)
     select_signature_key = "<M-S>",
   }, bufnr)
 
-  local wk = require("which-key")
-
-  wk.register({
+  require("which-key").register({
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     ["<leader>gD"] = { vim.lsp.buf.declaration, "Jump to symbol declaration" },
     ["<leader>gd"] = { vim.lsp.buf.definition, "Jump to symbol definition" },
@@ -30,11 +28,6 @@ local on_attach = function(client, bufnr)
     ["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder,  "Remove folder from workspace" },
     ["<leader>wl"] = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders" },
   }, { buffer = bufnr })
-
-  wk.register({
-    ["<M-s>"] = { "Toggle signature on and off" },
-    ["<M-S>"] = { "Cycle to next signature" },
-  }, { buffer = bufnr, mode = "i" })
 
 end
 
