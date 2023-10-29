@@ -26,22 +26,20 @@ return {
         select_signature_key = "<M-S>",
       }, bufnr)
 
-      require("which-key").register({
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        ["<leader>gD"] = { vim.lsp.buf.declaration, "Jump to symbol declaration" },
-        ["<leader>gd"] = { vim.lsp.buf.definition, "Jump to symbol definition" },
-        ["<leader>gi"] = { vim.lsp.buf.implementation, "List symbol implementations" },
-        ["<leader>gt"] = { vim.lsp.buf.type_definition, "Jump to type definition" },
-        ["<leader>gr"] = { vim.lsp.buf.references, "List symbol references" },
-        ["<leader>R"]  = { vim.lsp.buf.rename, "Rename symbol references" },
-        ["<M-h>"]      = { vim.lsp.buf.hover, "Show hover information" },
-        ["<leader>ca"] = { vim.lsp.buf.code_action, "Select an available code action" },
-        ["<leader>bf"] = { vim.lsp.buf.formatting, "Format current buffer" },
-        ["<leader>wa"] = { vim.lsp.buf.add_workspace_folder, "Add folder to workspace" },
-        ["<leader>wr"] = { vim.lsp.buf.remove_workspace_folder,  "Remove folder from workspace" },
-        ["<leader>wl"] = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders" },
-      }, { buffer = bufnr })
-
+      -- See `:help vim.lsp.*` for documentation on any of the below functions
+      vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {desc = "Go to symbol declaration", buffer = bufnr})
+      vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {desc = "Go to symbol definition", buffer = bufnr})
+      vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {desc = "Go to symbol implementations", buffer = bufnr})
+      vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, {desc = "Go to type definition", buffer = bufnr})
+      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {desc = "Go to symbol references", buffer = bufnr})
+      vim.keymap.set("n", "<leader>R", vim.lsp.buf.rename, {desc = "Rename symbol references", buffer = bufnr})
+      vim.keymap.set("n", "<M-h>", vim.lsp.buf.hover, {desc = "Show hover information", buffer = bufnr})
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Select an available code action", buffer = bufnr})
+      vim.keymap.set("n", "<leader>bf", vim.lsp.buf.formatting, {desc = "Format current buffer", buffer = bufnr})
+      vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, {desc = "Add folder to workspace", buffer = bufnr})
+      vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, {desc = "Remove folder from workspace", buffer = bufnr})
+      vim.keymap.set("n", "<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+                      {desc = "List workspace folders", buffer = bufnr})
     end
 
     local lspconfig = require("lspconfig")
