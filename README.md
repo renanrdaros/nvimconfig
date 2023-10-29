@@ -163,7 +163,7 @@ Clone this repo into your `stdpath('config')` directory[^1]:
 git clone --depth=1 https://github.com/renanrdaros/nvimconfig.git ~/.config/nvim
 ```
 
-> **Note:** The first time you run `nvim` again it will automatically install a plugin manager ([`packer.nvim`](https://github.com/wbthomason/packer.nvim)) as well as all the plugins used by this config. Just wait for the procedure to finish.
+> **Note:** The first time you run `nvim` again it will automatically install a plugin manager ([`lazy.nvim`](https://github.com/folke/lazy.nvim)) as well as all the plugins used by this config. Just wait for the procedure to finish.
 
 ---
 ## References
