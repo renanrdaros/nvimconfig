@@ -1,14 +1,10 @@
 return {
-  "williamboman/mason.nvim",
+  "neovim/nvim-lspconfig",
   dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "ray-x/lsp_signature.nvim",
+    "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        "ray-x/lsp_signature.nvim",
-      },
-    },
   },
   config = function()
     -- Use an on_attach function to only map the following keys
@@ -43,27 +39,89 @@ return {
     end
 
     local lspconfig = require("lspconfig")
+    local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    lspconfig["clangd"].setup{
-        on_attach = on_attach,
-        capabilities = capabilites,
-    }
+    mason.setup()
+    mason_lspconfig.setup({
+      -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
+      -- This setting has no relation with the `automatic_installation` setting.
+      ---@type string[]
+      ensure_installed = {
+        "clangd",
+        "cmake",
+        "lua_ls",
+        "pyright",
+        "rust_analyzer",
+        -- "arduino_language_server",
+      },
 
-    lspconfig["pyright"].setup{
-        on_attach = on_attach,
-        capabilities = capabilites,
-    }
+      -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
+      -- This setting has no relation with the `ensure_installed` setting.
+      -- Can either be:
+      --   - false: Servers are not automatically installed.
+      --   - true: All servers set up via lspconfig are automatically installed.
+      --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
+      --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
+      ---@type boolean
+      automatic_installation = false,
 
-    lspconfig["rust_analyzer"].setup{
-        on_attach = on_attach,
-        capabilities = capabilites,
-        cmd = { "rustup", "run", "stable", "rust-analyzer" }
-    }
+      -- See `:h mason-lspconfig.setup_handlers()`
+      ---@type table<string, fun(server_name: string)>?
+      handlers = {
+        -- This is the default handler and will be called for each
+        -- installed server that doesn't have a dedicated handler.
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilites = capabilities,
+            on_attach = on_attach,
+          })
+        end,
 
-    lspconfig["cmake"].setup{
-        on_attach = on_attach,
-        capabilities = capabilites,
-    }
+        -- Next, you can provide targeted overrides for specific servers.
+        ["lua_ls"] = function()
+          lspconfig.lua_ls.setup({
+            capabilites = capabilities,
+            on_attach = on_attach,
+            settings = {
+              Lua = {
+                -- diagnostics = {
+                --   globals = {"vim"},
+                -- },
+                workspace = {
+                  -- library = {
+                  --   vim.api.nvim_get_runtime_file("lua", true),
+                  -- },
+                  checkThirdParty = false,
+                },
+              },
+            },
+          })
+        end,
+
+        -- ["arduino_language_server"] = function()
+        --   lspconfig.arduino_language_server.setup({
+        --     cmd = {
+        --       "/home/rrd/.local/share/nvim/mason/bin/arduino-language-server",
+        --       "-cli", "/home/rrd/.local/bin/arduino-cli",
+        --       "-cli-config", "/home/rrd/.arduino15/arduino-cli.yaml",
+        --       "-clangd", "/home/rrd/.local/share/nvim/mason/bin/clangd",
+        --     },
+        --     on_attach = on_attach,
+        --     capabilities = capabilities,
+        --   })
+        -- end,
+      },
+    })
+
+    -- Depending on your platform, mason may fail to install some language servers.
+    -- When that happens, you need to install the server manually and set it up here.
+    -- Example:
+    -- lspconfig["clangd"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
+
   end,
 }
