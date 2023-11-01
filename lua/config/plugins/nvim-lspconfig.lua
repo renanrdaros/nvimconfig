@@ -5,6 +5,7 @@ return {
     "ray-x/lsp_signature.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    {"folke/neodev.nvim", opts = {}},
   },
   config = function()
     -- Use an on_attach function to only map the following keys
@@ -37,6 +38,11 @@ return {
       vim.keymap.set("n", "<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
                       {desc = "List workspace folders", buffer = bufnr})
     end
+
+    -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+    require("neodev").setup({
+      -- add any options here, or leave empty to use the default settings
+    })
 
     local lspconfig = require("lspconfig")
     local mason = require("mason")
