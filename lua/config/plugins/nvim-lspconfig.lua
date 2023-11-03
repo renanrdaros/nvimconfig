@@ -32,7 +32,7 @@ return {
       vim.keymap.set("n", "<leader>R", vim.lsp.buf.rename, {desc = "Rename symbol references", buffer = bufnr})
       vim.keymap.set("n", "<M-h>", vim.lsp.buf.hover, {desc = "Show hover information", buffer = bufnr})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Select an available code action", buffer = bufnr})
-      vim.keymap.set("n", "<leader>bf", vim.lsp.buf.formatting, {desc = "Format current buffer", buffer = bufnr})
+      vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format, {desc = "Format current buffer", buffer = bufnr})
       vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, {desc = "Add folder to workspace", buffer = bufnr})
       vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, {desc = "Remove folder from workspace", buffer = bufnr})
       vim.keymap.set("n", "<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
