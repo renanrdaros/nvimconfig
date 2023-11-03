@@ -49,19 +49,44 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+    -- list of servers for mason to install
+    local ensure_installed = {
+      "clangd",
+      "cmake",
+      "lua_ls",
+      "pyright",
+      "rust_analyzer",
+    }
+
+    -- some servers are not supported by mason when running on Raspberry Pi 3
+    local unsupported_servers_rpi3 = {"clangd"}
+
+    -- is it running on Raspberry Pi 3?
+    local running_on_rpi3 = false
+    local grep = vim.system({"grep", "Model", "/proc/cpuinfo"}, {text = true}):wait()
+    if grep.code == 0 or grep.code == 1 then
+      if grep.stdout:find("Raspberry Pi 3") then
+        running_on_rpi3 = true
+        -- remove unsupported servers
+        for _, unsupported in ipairs(unsupported_servers_rpi3) do
+          for i, server in ipairs(ensure_installed) do
+            if server == unsupported then
+              table.remove(ensure_installed, i)
+              break
+            end
+          end
+        end
+      end
+    else
+      error("grep failed with error code "..grep.code)
+    end
+
     mason.setup()
     mason_lspconfig.setup({
       -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
       -- This setting has no relation with the `automatic_installation` setting.
       ---@type string[]
-      ensure_installed = {
-        "clangd",
-        "cmake",
-        "lua_ls",
-        "pyright",
-        "rust_analyzer",
-        -- "arduino_language_server",
-      },
+      ensure_installed = ensure_installed,
 
       -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
       -- This setting has no relation with the `ensure_installed` setting.
@@ -123,11 +148,14 @@ return {
 
     -- Depending on your platform, mason may fail to install some language servers.
     -- When that happens, you need to install the server manually and set it up here.
-    -- Example:
-    -- lspconfig["clangd"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
+    if running_on_rpi3 then
+      for _, server in ipairs(unsupported_servers_rpi3) do
+        lspconfig[server].setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+        })
+      end
+    end
 
   end,
 }
