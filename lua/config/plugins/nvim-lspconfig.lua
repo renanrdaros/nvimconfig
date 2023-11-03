@@ -117,32 +117,13 @@ return {
             on_attach = on_attach,
             settings = {
               Lua = {
-                -- diagnostics = {
-                --   globals = {"vim"},
-                -- },
                 workspace = {
-                  -- library = {
-                  --   vim.api.nvim_get_runtime_file("lua", true),
-                  -- },
                   checkThirdParty = false,
                 },
               },
             },
           })
         end,
-
-        -- ["arduino_language_server"] = function()
-        --   lspconfig.arduino_language_server.setup({
-        --     cmd = {
-        --       "/home/rrd/.local/share/nvim/mason/bin/arduino-language-server",
-        --       "-cli", "/home/rrd/.local/bin/arduino-cli",
-        --       "-cli-config", "/home/rrd/.arduino15/arduino-cli.yaml",
-        --       "-clangd", "/home/rrd/.local/share/nvim/mason/bin/clangd",
-        --     },
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        --   })
-        -- end,
       },
     })
 
