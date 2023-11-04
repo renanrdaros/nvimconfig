@@ -31,6 +31,7 @@ return {
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {desc = "Go to symbol references", buffer = bufnr})
       vim.keymap.set("n", "<leader>R", vim.lsp.buf.rename, {desc = "Rename symbol references", buffer = bufnr})
       vim.keymap.set("n", "<M-h>", vim.lsp.buf.hover, {desc = "Show hover information", buffer = bufnr})
+      vim.keymap.set({"n", "i"}, "<M-i>", function() vim.lsp.inlay_hint(0, nil) end, {desc = "Toggle inlay hint", buffer = bufnr})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Select an available code action", buffer = bufnr})
       vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format, {desc = "Format current buffer", buffer = bufnr})
       vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, {desc = "Add folder to workspace", buffer = bufnr})
