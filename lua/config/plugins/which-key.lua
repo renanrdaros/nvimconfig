@@ -17,8 +17,8 @@ return {
         b = {name = "+buffer"},
         d = {name = "+diagnostics"},
         e = {name = "+explore"},
-        f = {name = "+find"},
         g = {name = "+goto"},
+        t = {name = "+telescope"},
       },
     })
   end
