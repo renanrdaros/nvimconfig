@@ -40,6 +40,11 @@ return {
                       {desc = "List workspace folders", buffer = bufnr})
     end
 
+    local on_attach_clangd = function(client, bufnr)
+      on_attach(client, bufnr)
+      vim.keymap.set("n", "<leader>gs", "<Cmd>ClangdSwitchSourceHeader<CR>", {desc = "Switch between source/header", buffer = bufnr})
+    end
+
     -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
     require("neodev").setup({
       -- add any options here, or leave empty to use the default settings
@@ -124,18 +129,23 @@ return {
             },
           })
         end,
+
+        ["clangd"] = function()
+          lspconfig.clangd.setup({
+            capabilities = capabilities,
+            on_attach = on_attach_clangd,
+          })
+        end,
       },
     })
 
     -- Depending on your platform, mason may fail to install some language servers.
     -- When that happens, you need to install the server manually and set it up here.
     if running_on_rpi3 then
-      for _, server in ipairs(unsupported_servers_rpi3) do
-        lspconfig[server].setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-        })
-      end
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        on_attach = on_attach_clangd,
+      })
     end
 
   end,
