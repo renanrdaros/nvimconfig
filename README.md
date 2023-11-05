@@ -111,51 +111,10 @@ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 # install fd
 curl -LO https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
 sudo dpkg -i fd_8.4.0_amd64.deb
-
-# create symlink in order to use fd instead of fdfind command
 ln -s $(which fdfind) ~/.local/bin/fd
 ```
 
-## 5 Install Language Servers
-
-Neovim provides an LSP client, but to get LSP features we need to install the language servers (which are provided by third parties).
-
-### 5.1 Clangd
-
-`clangd` is a C++ language server. Run the following commands to install it:
-
-```sh
-sudo apt install clangd-14
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100
-```
-
-For more information about installation and setup, click [here](https://clangd.llvm.org/installation).
-
-### 5.2 Pyright
-
-`pyright` is a static type checker and language server for python. We can install it using `npm`.
-
-```sh
-npm i -g pyright
-```
-
-### 5.3 Rust Analyzer
-
-`rust-analyzer` is an implementation of LSP for the Rust programming language. Assuming you already have Rust installed on your machine, then you can install `rust-analyzer` with the following command:
-
-```sh
-rustup component add rust-analyzer
-```
-
-### 5.4 CMake Language Server
-
-`cmake-language-server` is a CMake LSP Implementation. Install it with the following command:
-
-```
-python3 -m pip install --user cmake-language-server
-```
-
-## 6 Install This Configuration
+## 5 Install This Configuration
 
 Clone this repo into your `stdpath('config')` directory[^1]:
 
